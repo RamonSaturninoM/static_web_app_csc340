@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Animal - Animal Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">🐾 Animal Gallery</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="details.html">Details</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="new-animal-form.html">Add Animal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-5 bg-light min-vh-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-xl-6">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-header bg-primary text-white text-center py-4">
+                            <h1 class="display-6 fw-bold mb-0">🦁 Add a New Animal</h1>
+                            <p class="mb-0 mt-2 opacity-75">Share your favorite animal with the world!</p>
+                        </div>
+                        <div class="card-body p-4">
+                            <form id="animalForm" class="needs-validation" novalidate>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold" for="name">
+                                            <i class="bi bi-tag me-1"></i>Animal Name
+                                        </label>
+                                        <input class="form-control form-control-lg" id="name" name="name" placeholder="e.g., Lion" required>
+                                        <div class="invalid-feedback">Please provide a name for the animal.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold" for="species">
+                                            <i class="bi bi-book me-1"></i>Scientific Species
+                                        </label>
+                                        <input class="form-control form-control-lg" id="species" name="species" placeholder="e.g., Panthera leo" required>
+                                        <div class="invalid-feedback">Please provide the scientific species name.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold" for="type">
+                                            <i class="bi bi-diagram-3 me-1"></i>Animal Type
+                                        </label>
+                                        <select class="form-select form-select-lg" id="type" name="type" required>
+                                            <option value="">Choose type...</option>
+                                            <option value="Mammal">Mammal</option>
+                                            <option value="Bird">Bird</option>
+                                            <option value="Reptile">Reptile</option>
+                                            <option value="Amphibian">Amphibian</option>
+                                            <option value="Fish">Fish</option>
+                                            <option value="Invertebrate">Invertebrate</option>
+                                        </select>
+                                        <div class="invalid-feedback">Please select an animal type.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold" for="age">
+                                            <i class="bi bi-calendar me-1"></i>Age (years)
+                                        </label>
+                                        <input type="number" min="0" max="200" class="form-control form-control-lg" id="age" name="age" placeholder="e.g., 5" required>
+                                        <div class="invalid-feedback">Please provide a valid age.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label fw-semibold" for="habitat">
+                                            <i class="bi bi-geo-alt me-1"></i>Natural Habitat
+                                        </label>
+                                        <input class="form-control form-control-lg" id="habitat" name="habitat" placeholder="e.g., African savanna, Tropical rainforest" required>
+                                        <div class="invalid-feedback">Please describe the animal's natural habitat.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label fw-semibold" for="description">
+                                            <i class="bi bi-file-text me-1"></i>Description
+                                        </label>
+                                        <textarea class="form-control form-control-lg" id="description" name="description" rows="4" placeholder="Tell us about this amazing animal..." required></textarea>
+                                        <div class="invalid-feedback">Please provide a description of the animal.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label fw-semibold" for="imageUrl">
+                                            <i class="bi bi-image me-1"></i>Image URL
+                                        </label>
+                                        <input type="url" class="form-control form-control-lg" id="imageUrl" name="imageUrl" placeholder="https://example.com/photo.jpg" required>
+                                        <div class="form-text">Use a high-quality image URL (recommended: Unsplash, Pexels)</div>
+                                        <div class="invalid-feedback">Please provide a valid image URL.</div>
+                                    </div>
+                                    <div class="col-12 mt-4">
+                                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                            <a class="btn btn-outline-secondary btn-lg px-4" href="index.html">
+                                                <i class="bi bi-arrow-left me-2"></i>Back to Gallery
+                                            </a>
+                                            <button class="btn btn-primary btn-lg px-4" type="submit">
+                                                <i class="bi bi-save me-2"></i>Save Animal
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            
+                            <div id="formAlert" class="alert alert-success mt-4 d-none" role="alert">
+                                <i class="bi bi-check-circle me-2"></i>
+                                <strong>Success!</strong> Animal successfully added! 
+                                <a href="index.html" class="alert-link">View in gallery</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-4 bg-dark text-light">
+        <div class="container text-center">
+            <p class="mb-0">© <span id="year"></span> Animal Gallery - Celebrating Wildlife</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"></script>
+    <script src="assets/script.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Form validation and submission
+        (function() {
+            'use strict';
+            const form = document.getElementById('animalForm');
+            
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    event.preventDefault();
+                    
+                    // Get form data
+                    const formData = new FormData(form);
+                    const animal = {
+                        name: formData.get('name'),
+                        species: formData.get('species'),
+                        type: formData.get('type'),
+                        age: parseInt(formData.get('age')),
+                        habitat: formData.get('habitat'),
+                        description: formData.get('description'),
+                        imageUrl: formData.get('imageUrl')
+                    };
+                    
+                    // Save animal (assuming saveAnimal function exists in script.js)
+                    if (typeof saveAnimal === 'function') {
+                        saveAnimal(animal);
+                    }
+                    
+                    // Show success message
+                    document.getElementById('formAlert').classList.remove('d-none');
+                    form.reset();
+                    form.classList.remove('was-validated');
+                    
+                    // Scroll to success message
+                    document.getElementById('formAlert').scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                form.classList.add('was-validated');
+            });
+        })();
+    </script>
+</body>
+</html>
